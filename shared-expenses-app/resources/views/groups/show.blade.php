@@ -75,7 +75,12 @@
     </form>
 
     <hr>
+<a href="{{ route('expenses.create',$group->id) }}"
+   class="btn btn-primary mb-3">
 
+    Add Expense
+
+</a>
     <h4>Members</h4>
 
     <table class="table">

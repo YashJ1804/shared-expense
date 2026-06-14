@@ -4,6 +4,17 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupMemberController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\ExpenseController;
+
+Route::get(
+'/groups/{group}/expenses/create',
+[ExpenseController::class,'create']
+)->name('expenses.create');
+
+Route::post(
+'/groups/{group}/expenses',
+[ExpenseController::class,'store']
+)->name('expenses.store');
 
 Route::middleware(['auth'])->group(function () {
 
