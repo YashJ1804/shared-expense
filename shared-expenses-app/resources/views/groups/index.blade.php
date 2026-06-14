@@ -89,3 +89,74 @@
     </div>
 
 </x-app-layout>
+<x-app-layout>
+
+<div class="container mt-4">
+
+    <h2>
+        {{ $group->name }}
+        Balances
+    </h2>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Paid</th>
+                <th>Share</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach($balances as $balance)
+
+                <tr>
+
+                    <td>
+                        {{ $balance['name'] }}
+                    </td>
+
+                    <td>
+                        ₹{{ number_format($balance['paid'],2) }}
+                    </td>
+
+                    <td>
+                        ₹{{ number_format($balance['share'],2) }}
+                    </td>
+
+                    <td>
+
+                        @if($balance['balance'] >= 0)
+
+                            <span class="text-success">
+
+                                ₹{{ number_format($balance['balance'],2) }}
+
+                            </span>
+
+                        @else
+
+                            <span class="text-danger">
+
+                                ₹{{ number_format($balance['balance'],2) }}
+
+                            </span>
+
+                        @endif
+
+                    </td>
+
+                </tr>
+
+            @endforeach
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</x-app-layout>

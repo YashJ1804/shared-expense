@@ -5,11 +5,28 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupMemberController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\BalanceController;
+use App\Http\Controllers\SettlementController;
+
+Route::get(
+'/groups/{group}/settlements/create',
+[SettlementController::class,'create']
+)->name('settlements.create');
+
+Route::post(
+'/groups/{group}/settlements',
+[SettlementController::class,'store']
+)->name('settlements.store');
 
 Route::get(
 '/groups/{group}/expenses/create',
 [ExpenseController::class,'create']
 )->name('expenses.create');
+
+Route::get(
+'/groups/{group}/balances',
+[BalanceController::class,'index']
+)->name('balances.index');
 
 Route::post(
 '/groups/{group}/expenses',

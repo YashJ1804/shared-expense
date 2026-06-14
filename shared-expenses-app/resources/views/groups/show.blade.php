@@ -81,6 +81,18 @@
     Add Expense
 
 </a>
+<a href="{{ route('balances.index',$group->id) }}"
+   class="btn btn-warning">
+
+    View Balances
+
+</a>
+<a href="{{ route('settlements.create',$group->id) }}"
+   class="btn btn-danger">
+
+    Record Settlement
+
+</a>
     <h4>Members</h4>
 
     <table class="table">
