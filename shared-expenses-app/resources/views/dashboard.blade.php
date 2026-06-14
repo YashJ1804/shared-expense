@@ -14,4 +14,18 @@
             </div>
         </div>
     </div>
+    <div class="row">
+
+    <div class="col-md-4">
+
+        <a href="{{ route('groups.index') }}"
+           class="btn btn-primary w-100">
+
+            Manage Groups
+
+        </a>
+
+    </div>
+
+</div>
 </x-app-layout>

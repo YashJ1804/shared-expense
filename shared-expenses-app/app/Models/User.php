@@ -39,6 +39,10 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    public function memberships()
+{
+    return $this->hasMany(GroupMember::class);
+}
     public function expensesPaid()
 {
     return $this->hasMany(Expense::class,'paid_by');

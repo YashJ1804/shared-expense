@@ -6,14 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    //
-    public function members()
-{
-    return $this->hasMany(GroupMember::class);
-}
+    protected $fillable = [
+        'name',
+        'description',
+        'created_by'
+    ];
 
-public function expenses()
-{
-    return $this->hasMany(Expense::class);
-}
+    public function creator()
+    {
+        return $this->belongsTo(User::class,'created_by');
+    }
+
+    public function members()
+    {
+        return $this->hasMany(GroupMember::class);
+    }
+
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
 }

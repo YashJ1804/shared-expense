@@ -2,6 +2,24 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GroupMemberController;
+use App\Http\Controllers\GroupController;
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::resource('groups', GroupController::class);
+
+});
+
+Route::post(
+'/groups/{group}/members',
+[GroupMemberController::class,'store']
+);
+
+Route::delete(
+'/groups/{group}/members/{member}',
+[GroupMemberController::class,'destroy']
+);
 
 Route::get('/', function () {
     return view('welcome');
